@@ -2,9 +2,13 @@
   "name": "tsamagotchi",
   "version": "1.0.0",
   "description": "A TypeScript implementation of a digital pet.",
-  "main": "index.js",
+  "main": "Tsamagotchi.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precompile": "echo [INFO] compiling",
+    "compile": "tsc",
+    "pretest": "echo [INFO] testing",
+    "test": "mocha",
+    "build": "npm run compile && npm run test"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/artusvranken/Tsamagotchi/issues"
   },
-  "homepage": "https://github.com/artusvranken/Tsamagotchi#readme"
+  "homepage": "https://github.com/artusvranken/Tsamagotchi#readme",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "typescript": "^2.6.2"
+  }
 }

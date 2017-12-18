@@ -1,26 +1,107 @@
 export class Tsamagotchi
 {
-    private name : string;
-    private age : number;
-    private birthdate : Date;
-    private health : number;
-    private satiety : number;
-    private happiness : number;
+    public name : string;
     
-    private isAlive : boolean;
+    private _age : number;
+    private _birthdate : Date;
+    private _health : number;
+    private _satiety : number;
+    private _happiness : number;
     
-    private foodLimit : number = 100;
+    private _isAlive : boolean;
     
-    constructor(name : string = "Your new Tsamagotchi")
+    private _foodLimit : number;
+    
+    /**
+    * Create a Tsamagotchi instance.
+    *
+    * @class
+    *
+    * @param {string} [name="Your new Tsamagotchi"] - The name of your Tsamagotchi.
+    * @param {number} [foodLimit=100] - The amount of food your Tsamagotchi can consume.
+    */
+    constructor(name : string = "Your new Tsamagotchi", foodLimit : number = 100)
     {
         this.name = name;
-        this.age = 0;
-        this.birthdate = new Date();
-        this.health = 100;
-        this.satiety = 100;
-        this.happiness = 100;
+        this._age = 0;
+        this._birthdate = new Date();
+        this._health = 100;
+        this._satiety = 100;
+        this._happiness = 100;
         
-        this.isAlive = true;
+        this._isAlive = true;
+        
+        this._foodLimit = foodLimit;
+    }
+    
+    /**
+    * Get the age of the Tsamagotchi.
+    *
+    * @returns {number} The age of the Tsamagotchi.
+    */
+    get age() : number
+    {
+        return this._age;
+    }
+    
+    /**
+    * Get the birthdate of the Tsamagotchi.
+    *
+    * @returns {Date} The birthdate of the Tsamagotchi.
+    */
+    get birthdate() : Date
+    {
+        return this._birthdate;
+    }
+
+    /**
+    * Get the health of the Tsamagotchi.
+    *
+    * @returns {number} The health of the Tsamagotchi.
+    */
+    get health() : number
+    {
+        return this._health;
+    }
+    
+    /**
+    * Get the satiety level of the Tsamagotchi.
+    *
+    * @return {number} The satiety level of the Tsamagotchi.
+    */
+    get satiety() : number
+    {
+        return this._satiety;
+    }
+    
+    /**
+    * Get the happiness level of the Tsamagotchi.
+    *
+    * @returns {number} The happiness level of the Tsamagotchi.
+    */
+    get happiness() : number
+    {
+        return this._happiness;
+    }
+    
+    /**
+    * Check if the Tsamagotchi is still alive.
+    *
+    * @returns {boolean} Wether the Tsamagotchi is still alive or not.
+    */
+    get isAlive() : boolean
+    {
+        return this._isAlive;
+    }
+    
+    /**
+    * Get the food limit of the Tsamagotchi.
+    *
+    * @returns {number} The amount of food the Tsamagotchi can consume.
+    */
+    get foodLimit() : number
+    {
+        return this._foodLimit;
     }
     
     /**
@@ -34,12 +115,12 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.satiety;
         
-        this.satiety += amount;
+        this._satiety += amount;
         
         if (this.satiety > this.foodLimit)
         {
             this.decreaseHealth( this.satiety - this.foodLimit );
-            this.satiety = this.foodLimit;
+            this._satiety = this.foodLimit;
         }
         
         return this.satiety;
@@ -58,7 +139,7 @@ export class Tsamagotchi
         
         if (this.isAlive)
         {
-            this.age += amount;
+            this._age += amount;
             this.digest(amount);
             this.decreaseHappiness(amount);
         }
@@ -75,12 +156,12 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.satiety;
         
-        this.satiety -= amount;
+        this._satiety -= amount;
         
-        if (this.satiety <= 0)
+        if (this.satiety < 0)
         {
-            this.decreaseHealth( Math.abs(this.satiety) + 1 );
-            this.satiety = 0;
+            this.decreaseHealth( Math.abs(this.satiety) );
+            this._satiety = 0;
         }
         
         return this.satiety;
@@ -96,7 +177,7 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.health;
         
-        this.health += amount;
+        this._health += amount;
         return this.health;
     }
     
@@ -110,7 +191,7 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.happiness;
         
-        this.happiness += amount;
+        this._happiness += amount;
         return this.happiness;
     }
     
@@ -124,11 +205,11 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.happiness;
         
-        this.happiness -= amount;
+        this._happiness -= amount;
         if (this.happiness <= 0)
         {
             this.decreaseHealth( Math.abs(this.happiness) + 1 );
-            this.happiness = 0;
+            this._happiness = 0;
         }
         
         return this.happiness;
@@ -144,7 +225,7 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.health;
         
-        this.health -= 1;
+        this._health -= 1;
         if (this.health <= 0) this.die();
         return this.health;
     }
@@ -154,7 +235,7 @@ export class Tsamagotchi
     */
     die()
     {
-        this.isAlive = false;
-        this.health = 0;
+        this._isAlive = false;
+        this._health = 0;
     }
 }
