@@ -1,0 +1,19 @@
+{
+  "name": "tsamagotchi",
+  "version": "1.0.0",
+  "description": "A TypeScript implementation of a digital pet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artusvranken/Tsamagotchi.git"
+  },
+  "author": "Artus Vranken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artusvranken/Tsamagotchi/issues"
+  },
+  "homepage": "https://github.com/artusvranken/Tsamagotchi#readme"
+}
