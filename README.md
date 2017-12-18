@@ -128,7 +128,7 @@ var areYouAlive = myTsamagotchi.isAlive; // Hopefully true
 A `Tsamagotchi` has a limit on how much it can be fed. If you feed it above its food level, it will lose health.
 
 ```javascript
-var foodLimit = myTsamagotchi.foodLimit; e.g. 100
+var foodLimit = myTsamagotchi.foodLimit; // e.g. 100
 ```
 
 > This instace variable can only be retrieved, not updated.
