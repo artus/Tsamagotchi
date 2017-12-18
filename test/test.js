@@ -1,5 +1,5 @@
 var assert = require('assert');
-var tsamagotchi = require("../Tsamagotchi");
+const { Tsamagotchi } = require("../Tsamagotchi");
 
 describe("Tsamagotchi class", function() {
     describe("Tsamagotchi constructor", function() {
@@ -67,7 +67,7 @@ describe("Tsamagotchi class", function() {
     
     describe("Tsamagotchi feed function.", function() {
         
-        describe("It increases satiety with given amount.", function() {
+        it("It increases satiety with given amount.", function() {
             var newTsamagotchi = new Tsamagotchi();
             newTsamagotchi.mature(1);
             newTsamagotchi.feed(1);
@@ -75,7 +75,7 @@ describe("Tsamagotchi class", function() {
             assert.equal(newTsamagotchi.satiety, 100);
         });
         
-        describe("If the amount surpasses the foodlimit, its health goes down.", function() {
+        it("If the amount surpasses the foodlimit, its health goes down.", function() {
             var newTsamagotchi = new Tsamagotchi();
             newTsamagotchi.feed(1);
             
@@ -102,7 +102,10 @@ describe("Tsamagotchi class", function() {
     
     describe("Tsamagotchi heal function.", function() {
         it("Increases the health of the Tsamagotchi with supplied amount.", function() {
-            var newTsamagotchi = new tsamagotchi.Tsamagotchi();
+            var newTsamagotchi = new Tsamagotchi();
+            newTsamagotchi.heal(1);
+            
+            assert.equal(newTsamagotchi.health, 101);
         });
     });
 });
