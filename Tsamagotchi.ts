@@ -225,7 +225,7 @@ export class Tsamagotchi
     {
         if (!this.isAlive) return this.health;
         
-        this._health -= 1;
+        this._health -= amount;
         if (this.health <= 0) this.die();
         return this.health;
     }

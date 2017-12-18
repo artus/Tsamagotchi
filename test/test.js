@@ -108,4 +108,42 @@ describe("Tsamagotchi class", function() {
             assert.equal(newTsamagotchi.health, 101);
         });
     });
+    
+    describe("Tsamagotchi love function.", function() {
+        
+        it("Increases the happiness level with the supplied amount.", function() {
+            var newTsamagotchi = new Tsamagotchi();
+            newTsamagotchi.love(1);
+            
+            assert.equal(newTsamagotchi.happiness, 101);
+        });
+    });
+    
+    describe("Tsamagotchi decreaseHappiness function.", function() {
+        
+        it("Decreases happiness level with the supplied amount.", function() {
+            var newTsamagotchi = new Tsamagotchi();
+            newTsamagotchi.decreaseHealth(1);
+            
+            assert.equal(newTsamagotchi.health, 99);
+        });
+        
+        it("If the health reaches zero, the Tsamagotchi dies.", function() {
+            var newTsamagotchi = new Tsamagotchi();
+            newTsamagotchi.decreaseHealth(100);
+            
+            assert.equal(newTsamagotchi.isAlive, false);
+        });
+    });
+    
+    describe("Tsamagotchi die function.", function() {
+        
+        it("Kills the Tsamagotchi and sets health to zero.", function() {
+            var newTsamagotchi = new Tsamagotchi();
+            newTsamagotchi.die()
+            
+            assert.equal(newTsamagotchi.isAlive, false);
+            assert.equal(newTsamagotchi.health, 0);
+        });
+    });
 });
