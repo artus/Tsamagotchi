@@ -38,7 +38,7 @@ There are many ways to interact with your `Tsamagotchi`:
 - Decrease its health
 - Kill it :<
 
-#### Creating a Tsamagotchi
+### Creating a Tsamagotchi
 
 A `Tsamagotchi` can be created without supplying parameters to its constructor, but you can supply 2 optional ones:
 
@@ -53,7 +53,7 @@ var namedTsamagotchi = new Tsamagotchi("Cutie π");
 var customTsamagotchi = new Tsamagotchi("Cutie π", 100000);
 ```
 
-#### Ask it about its information
+### Ask it about its information
 
 The `Tsamagotchi` class has a few instance variables but these are the ones you can ask it about:
 
@@ -133,7 +133,7 @@ var foodLimit = myTsamagotchi.foodLimit; e.g. 100
 
 > This instace variable can only be retrieved, not updated.
 
-#### Feed it
+### Feed it
 
 Feed your `Tsamagotchi` a certain amount, which it can digest when it matures:
 
@@ -147,7 +147,7 @@ myTsamagotchi.feed(20);
 
 If you feed your `Tsamagotchi`, its satiety goes up by the amount you fed it. If the satiety level reaches more than the `foodLimit` value, your `Tsamagotchi` will lose health.
 
-#### Let it mature
+### Let it mature
 
 You created your `Tsamagotchi` to raise it. Therefore, you need a way to let it mature. When it matures, its happiness and satiety decreases but its age goes up. Try to age it as much as you can for bragging rights.
 
@@ -159,7 +159,7 @@ myTsamagotchi.mature();
 myTsamagotchi.mature(33);
 ```
 
-#### Let it digest
+### Let it digest
 
 Your `Tsamagotchi` will digest the food you gave it all the way untill its satiety level reaches zero. If it does, it will lose health.
 
@@ -171,7 +171,7 @@ myTsamagotchi.digest();
 myTsamagotchi.digest(75);
 ```
 
-#### Heal it
+### Heal it
 
 Increase the health level by healing your `Tsamagotchi`, because if its health reaches zero, it will die.
 
@@ -183,7 +183,7 @@ myTsamagotchi.heal();
 myTsamagotchi.heal(666);
 ```
 
-#### Love it
+### Love it
 
 You want your pet to be happy, so you can increase its happiness level by loving it. If its happiness level reaches zero, it will lose health.
 
@@ -195,7 +195,7 @@ myTsamagotchi.love();
 myTsamagotchi.love(69);
 ```
 
-#### Decrease its happiness
+### Decrease its happiness
 
 You can also decrease its happiness. I don't know why you would want that but I exposed the function anyway. If its happiness reaches zero, it will lose health.
 
@@ -207,7 +207,7 @@ myTsamagotchi.decreaseHappiness();
 myTsamagotchi.love(9001);
 ```
 
-#### Decrease its health
+### Decrease its health
 
 You can also decrease its health. Again, this function should be private but I included it anyway. If its health reaches zero, it will die.
 
@@ -219,7 +219,7 @@ myTsamagotchi.decreaseHealth();
 myTsamagotchi.decreaseHealth(400);
 ```
 
-#### Kill it :<
+### Kill it :<
 
 As with all `objects`, it will eventually have to be destroyed. You monster!
 
